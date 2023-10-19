@@ -18,7 +18,7 @@ def on_message(client, userdata, message):
         
 
 
-broker="185.423.543.203"
+broker="157.230.214.17"
 port=1883
 client1= paho.Client("GIT-HUB")
 client1.on_message = on_message
@@ -46,8 +46,8 @@ if st.button('OFF'):
     client1= paho.Client("GIT-HUB")                           
     client1.on_publish = on_publish                          
     client1.connect(broker,port)  
-    message =json.dumps({"Act1":act1})
-    ret= client1.publish("cmqtt_s", message)
+    message =json.dumps({"Act1_eldehibid":act1})
+    ret= client1.publish("Motor_eldehibid", message)
   
     
 else:
@@ -60,8 +60,8 @@ if st.button('Enviar valor analógico'):
     client1= paho.Client("GIT-HUB")                           
     client1.on_publish = on_publish                          
     client1.connect(broker,port)   
-    message =json.dumps({"Analog": float(values)})
-    ret= client1.publish("cmqtt_a", message)
+    message =json.dumps({"Analog_eldehibid": float(values)})
+    ret= client1.publish("Luces_eldehibid", message)
     
  
 else:
